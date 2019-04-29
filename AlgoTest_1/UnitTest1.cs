@@ -27,19 +27,19 @@ namespace AlgoTest_1
         public void TestDequeA_2()
         {
             Deque<int> deq = new Deque<int>();
-            for (int i = 0; i < 1000; i++)      // 1mc
+            for (int i = 0; i < 1000; i++)      
             {
                 deq.AddFront(i+1);
             }
             
             Deque<int> deq1 = new Deque<int>();
-            for (int i = 0; i < 10000; i++)     // 16mc
+            for (int i = 0; i < 10000; i++)     
             {
                 deq1.AddFront(i + 1);
             }
 
             Deque<int> deq2 = new Deque<int>();
-            for (int i = 0; i < 100000; i++)    // ~1.9c
+            for (int i = 0; i < 100000; i++)    
             {
                 deq2.AddFront(i + 1);
             }
@@ -97,12 +97,12 @@ namespace AlgoTest_1
         public void TestDequeA_5()
         {
             Deque<int> deq = new Deque<int>();
-            for (int i = 0; i < 100000; i++)        // ~1.9mc
+            for (int i = 0; i < 100000; i++)        
             {
                 deq.AddFront(i + 1);
             }
                
-            for (int i = 0; i < 100000; i++)        // 467mc
+            for (int i = 0; i < 100000; i++)        
             {
                 deq.RemoveFront();
             }
@@ -131,6 +131,48 @@ namespace AlgoTest_1
         }
 
 
+        // Добавление в хвост. Проверка next и prev (head)
+        //
+        [TestMethod]
+        public void TestDequeA_7()
+        {
+            Deque<int> deq = new Deque<int>();
+            for (int i = 0; i < 4; i++)
+            {
+                deq.AddTail(i + 1);
+            }
+            Node<int> node = deq.list.head.next;
+            for (int i = 2; i < 4; i++)
+            {
+                Assert.AreEqual(i-1, node.prev.item);
+                Assert.AreEqual(i, node.item);
+                Assert.AreEqual(i+1, node.next.item);
+                node = node.next;
+            }
+            
+        }
+
+
+        // Добавление в хвост. Проверка next и prev (tail)
+        //
+        [TestMethod]
+        public void TestDequeA_8()
+        {
+            Deque<int> deq = new Deque<int>();
+            for (int i = 0; i < 4; i++)
+            {
+                deq.AddTail(i + 1);
+            }
+            Node<int> node = deq.list.tail.prev;
+            for (int i = 3; i > 1; i--)
+            {
+                Assert.AreEqual(i - 1, node.prev.item);
+                Assert.AreEqual(i, node.item);
+                Assert.AreEqual(i + 1, node.next.item);
+                node = node.prev;
+            }
+
+        }
 
 
 

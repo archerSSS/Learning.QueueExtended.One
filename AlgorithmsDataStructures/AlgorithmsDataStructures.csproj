@@ -41,6 +41,7 @@
     <Compile Include="Node.cs" />
     <Compile Include="NodeList.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="StepList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
