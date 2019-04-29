@@ -111,6 +111,26 @@ namespace AlgoTest_1
         }
 
 
+        // Добавление в хвост и удаление всех из
+        //
+        [TestMethod]
+        public void TestDequeA_6()
+        {
+            Deque<int> deq = new Deque<int>();
+            for (int i = 0; i < 100000; i++)
+            {
+                deq.AddTail(i + 1);
+            }
+
+            for (int i = 0; i < 100000; i++)
+            {
+                deq.RemoveTail();
+            }
+
+            Assert.AreEqual(0, deq.Size());
+        }
+
+
 
 
 
@@ -217,18 +237,18 @@ namespace AlgoTest_1
         }
 
 
-        // Добавление и удаление всех
+        // Добавление в хвост и удаление всех из
         //
         [TestMethod]
         public void TestDequeB_6()
         {
             Deque_1<int> deq = new Deque_1<int>();
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 100000; i++)
             {
                 deq.AddTail(i + 1);
             }
 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 100000; i++)
             {
                 deq.RemoveTail();
             }

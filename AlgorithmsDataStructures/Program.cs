@@ -15,7 +15,6 @@ namespace AlgorithmsDataStructures
             {
                 list.Add(i+1);
             }
-            
             list.Reverse();
         }
     }

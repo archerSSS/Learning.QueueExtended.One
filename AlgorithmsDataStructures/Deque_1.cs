@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace AlgorithmsDataStructures
 {
@@ -42,16 +43,22 @@ namespace AlgorithmsDataStructures
             if (tail == null)
             {
                 tail = new Node<T>(item);
-                tail = head;
+                head = tail;
             }
             else
             {
+                tail.next = new Node<T>(item);
+                tail.next.prev = tail;
+                tail = tail.next;
 
-                Node<T> node = tail;
-                tail = new Node<T>(item);
-                node.next = tail;
-                tail.prev = node;
+                /*
+                Node<T> node = new Node<T>(item);
+                node.prev = tail;
+                node.prev.next = node;
+                tail = node;
+                */
             }
+            
             count++;
             // добавление в хвост
         }
