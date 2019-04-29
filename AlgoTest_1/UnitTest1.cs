@@ -131,10 +131,30 @@ namespace AlgoTest_1
         }
 
 
-        // Добавление в хвост. Проверка next и prev (head)
+        // Добавление в хвост и удаление всех из головы
         //
         [TestMethod]
         public void TestDequeA_7()
+        {
+            Deque<int> deq = new Deque<int>();
+            for (int i = 0; i < 100000; i++)
+            {
+                deq.AddTail(i + 1);
+            }
+            
+            for (int i = 0; i < 100000; i++)
+            {
+                Assert.AreEqual(i+1, deq.RemoveFront());
+            }
+
+            Assert.AreEqual(0, deq.Size());
+        }
+
+
+        // Добавление в хвост. Проверка next и prev (head)
+        //
+        [TestMethod]
+        public void TestDequeA_NextPrev_1()
         {
             Deque<int> deq = new Deque<int>();
             for (int i = 0; i < 4; i++)
@@ -156,7 +176,7 @@ namespace AlgoTest_1
         // Добавление в хвост. Проверка next и prev (tail)
         //
         [TestMethod]
-        public void TestDequeA_8()
+        public void TestDequeA_NextPrev_2()
         {
             Deque<int> deq = new Deque<int>();
             for (int i = 0; i < 4; i++)
@@ -178,7 +198,7 @@ namespace AlgoTest_1
         // Добавление в голову. Проверка next и prev (head)
         //
         [TestMethod]
-        public void TestDequeA_9()
+        public void TestDequeA_NextPrev_3()
         {
             Deque<int> deq = new Deque<int>();
             for (int i = 0; i < 4; i++)
@@ -200,7 +220,7 @@ namespace AlgoTest_1
         // Добавление в голову. Проверка next и prev (tail)
         //
         [TestMethod]
-        public void TestDequeA_10()
+        public void TestDequeA_NextPrev_4()
         {
             Deque<int> deq = new Deque<int>();
             for (int i = 0; i < 4; i++)
@@ -222,7 +242,7 @@ namespace AlgoTest_1
         // Добавление в голову. Проверка next и prev на null (tail)
         //
         [TestMethod]
-        public void TestDequeA_11()
+        public void TestDequeA_NextPrev_5()
         {
             Deque<int> deq = new Deque<int>();
             for (int i = 0; i < 4; i++)
@@ -239,7 +259,7 @@ namespace AlgoTest_1
         // Добавление в голову. Проверка next и prev на null (head)
         //
         [TestMethod]
-        public void TestDequeA_12()
+        public void TestDequeA_NextPrev_6()
         {
             Deque<int> deq = new Deque<int>();
             for (int i = 0; i < 4; i++)
