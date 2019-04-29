@@ -175,6 +175,89 @@ namespace AlgoTest_1
         }
 
 
+        // Добавление в голову. Проверка next и prev (head)
+        //
+        [TestMethod]
+        public void TestDequeA_9()
+        {
+            Deque<int> deq = new Deque<int>();
+            for (int i = 0; i < 4; i++)
+            {
+                deq.AddFront(i + 1);
+            }
+            Node<int> node = deq.list.head.next;
+            for (int i = 3; i > 1; i--)
+            {
+                Assert.AreEqual(i + 1, node.prev.item);
+                Assert.AreEqual(i, node.item);
+                Assert.AreEqual(i - 1, node.next.item);
+                node = node.next;
+            }
+
+        }
+
+
+        // Добавление в голову. Проверка next и prev (tail)
+        //
+        [TestMethod]
+        public void TestDequeA_10()
+        {
+            Deque<int> deq = new Deque<int>();
+            for (int i = 0; i < 4; i++)
+            {
+                deq.AddFront(i + 1);
+            }
+            Node<int> node = deq.list.tail.prev;
+            for (int i = 2; i < 4; i++)
+            {
+                Assert.AreEqual(i + 1, node.prev.item);
+                Assert.AreEqual(i, node.item);
+                Assert.AreEqual(i - 1, node.next.item);
+                node = node.prev;
+            }
+
+        }
+
+
+        // Добавление в голову. Проверка next и prev на null (tail)
+        //
+        [TestMethod]
+        public void TestDequeA_11()
+        {
+            Deque<int> deq = new Deque<int>();
+            for (int i = 0; i < 4; i++)
+            {
+                deq.AddFront(i + 1);
+            }
+            Node<int> node = deq.list.tail;
+
+            Assert.AreEqual(null, node.next);
+            Assert.AreEqual(null, node.prev.next.next);
+        }
+
+
+        // Добавление в голову. Проверка next и prev на null (head)
+        //
+        [TestMethod]
+        public void TestDequeA_12()
+        {
+            Deque<int> deq = new Deque<int>();
+            for (int i = 0; i < 4; i++)
+            {
+                deq.AddFront(i + 1);
+            }
+            Node<int> node = deq.list.head;
+
+            Assert.AreEqual(null, node.prev);
+            Assert.AreEqual(null, node.next.prev.prev);
+        }
+
+
+
+
+
+        // Queue_1 class tests
+        //
 
         // Простое добавление
         //

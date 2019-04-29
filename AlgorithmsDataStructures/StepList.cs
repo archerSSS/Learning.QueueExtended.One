@@ -21,7 +21,7 @@ namespace AlgorithmsDataStructures
 
         public void AddHead(Node<T> _item)
         {
-            if (head == null) tail = head;
+            if (head == null) tail = _item;
             else
             {
                 head.prev = _item;
