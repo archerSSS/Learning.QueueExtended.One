@@ -264,7 +264,6 @@ namespace AlgoTest_1
                 Assert.AreEqual(i+1, node.next.item);
                 node = node.next;
             }
-            
         }
 
 
@@ -570,6 +569,54 @@ namespace AlgoTest_1
             {
                 Assert.AreEqual(i, list.RemoveTail());
             }
+        }
+
+
+
+
+
+
+        // Палиндром
+        //
+        [TestMethod]
+        public void TestDequePalindrome_1()
+        {
+            String str1 = "sattas";
+            String str2 = "1122";
+            String str3 = "grey";
+            String str4 = "t1oo1t";
+            Char[] chars1 = str1.ToCharArray();
+            Char[] chars2 = str2.ToCharArray();
+            Char[] chars3 = str3.ToCharArray();
+            Char[] chars4 = str4.ToCharArray();
+            Deque<char> deq1 = new Deque<char>();
+            Deque<char> deq2 = new Deque<char>();
+            Deque<char> deq3 = new Deque<char>();
+            Deque<char> deq4 = new Deque<char>();
+
+
+            for (int i = 0; i < chars1.Length; i++)
+            {
+                deq1.AddTail(chars1[i]);
+            }
+            for (int i = 0; i < chars2.Length; i++)
+            {
+                deq2.AddTail(chars2[i]);
+            }
+            for (int i = 0; i < chars3.Length; i++)
+            {
+                deq3.AddTail(chars3[i]);
+            }
+            for (int i = 0; i < chars4.Length; i++)
+            {
+                deq4.AddTail(chars4[i]);
+            }
+            PalindromeAnalizer pda = new PalindromeAnalizer();
+
+            Assert.AreEqual(true, pda.IsPalindromic(deq1));
+            Assert.AreEqual(false, pda.IsPalindromic(deq2));
+            Assert.AreEqual(false, pda.IsPalindromic(deq3));
+            Assert.AreEqual(true, pda.IsPalindromic(deq4));
         }
     }
 }

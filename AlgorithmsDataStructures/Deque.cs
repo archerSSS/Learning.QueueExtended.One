@@ -40,6 +40,5 @@ namespace AlgorithmsDataStructures
             return list.count;
             return 0;
         }
-
     }
 }
