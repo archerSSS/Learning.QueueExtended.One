@@ -192,6 +192,46 @@ namespace AlgoTest_1
         }
 
 
+        // Удаление из пустого списка
+        //
+        [TestMethod]
+        public void TestDequeA_10()
+        {
+            Deque<int> deq = new Deque<int>();
+            Assert.AreEqual(0, deq.RemoveFront());
+        }
+
+
+        // Удаление из пустого списка
+        //
+        [TestMethod]
+        public void TestDequeA_11()
+        {
+            Deque<int> deq = new Deque<int>();
+            Assert.AreEqual(0, deq.RemoveTail());
+        }
+
+
+        // Удаление из пустого списка
+        //
+        [TestMethod]
+        public void TestDequeA_12()
+        {
+            Deque<String> deq = new Deque<String>();
+            Assert.AreEqual(null, deq.RemoveFront());
+        }
+
+
+        // Удаление из пустого списка
+        //
+        [TestMethod]
+        public void TestDequeA_13()
+        {
+            Deque<string> deq = new Deque<String>();
+            Assert.AreEqual(null, deq.RemoveTail());
+        }
+
+
         // Добавление-Удаление. 
         // Tail-Tail; Head-Head; Tail-Head; Head-Tail
         //
@@ -535,8 +575,7 @@ namespace AlgoTest_1
             {
                 Assert.AreEqual(i, list.RemoveTail());
             }
-
-
+            
             // Добавление в голову и удаление из головы
             //
             for (int i = 0; i < 100000; i++)
