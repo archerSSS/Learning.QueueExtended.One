@@ -150,6 +150,60 @@ namespace AlgoTest_1
             Assert.AreEqual(0, deq.Size());
         }
 
+        
+        // Добавление-Удаление. 
+        // Tail-Tail; Head-Head; Tail-Head; Head-Tail
+        //
+        [TestMethod]
+        public void TestDequeA_HeadTail_1()
+        {
+            Deque<int> deq = new Deque<int>();
+
+            // Добавление в хвост и удаление из хвоста
+            //
+            for (int i = 0; i < 100000; i++)
+            {
+                deq.AddTail(i + 1);
+            }
+            for (int i = 100000; i > 0; i--)
+            {
+                Assert.AreEqual(i, deq.RemoveTail());
+            }
+            
+            // Добавление в голову и удаление из головы
+            //
+            for (int i = 0; i < 100000; i++)
+            {
+                deq.AddFront(i + 1);
+            }
+            for (int i = 100000; i > 0; i--)
+            {
+                Assert.AreEqual(i, deq.RemoveFront());
+            }
+
+            // Добавление в хвост и удаление из головы
+            //
+            for (int i = 0; i < 100000; i++)
+            {
+                deq.AddTail(i + 1);
+            }
+            for (int i = 1; i <= 100000; i++)
+            {
+                Assert.AreEqual(i, deq.RemoveFront());
+            }
+
+            // Добавление в голову и удаление из хвоста
+            //
+            for (int i = 0; i < 100000; i++)
+            {
+                deq.AddFront(i + 1);
+            }
+            for (int i = 1; i <= 100000; i++)
+            {
+                Assert.AreEqual(i, deq.RemoveTail());
+            }
+        }
+
 
         // Добавление в хвост. Проверка next и prev (head)
         //
@@ -399,6 +453,62 @@ namespace AlgoTest_1
             }
 
             Assert.AreEqual(0, deq.Size());
+        }
+
+
+        // Проверка работы со списком напрямую. 
+        // Добавление-Удаление. 
+        // Tail-Tail; Head-Head; Tail-Head; Head-Tail
+        //
+        [TestMethod]
+        public void TestStepList_1()
+        {
+            StepList<int> list = new StepList<int>();
+
+            // Добавление в хвост и удаление из хвоста
+            //
+            for (int i = 0; i < 100000; i++)
+            {
+                list.AddTail(new Node<int>(i + 1));
+            }
+            for (int i = 100000; i > 0; i--)
+            {
+                Assert.AreEqual(i, list.RemoveTail());
+            }
+
+
+            // Добавление в голову и удаление из головы
+            //
+            for (int i = 0; i < 100000; i++)
+            {
+                list.AddHead(new Node<int>(i + 1));
+            }
+            for (int i = 100000; i > 0; i--)
+            {
+                Assert.AreEqual(i, list.RemoveHead());
+            }
+
+            // Добавление в хвост и удаление из головы
+            //
+            for (int i = 0; i < 100000; i++)
+            {
+                list.AddTail(new Node<int>(i + 1));
+            }
+            for (int i = 1; i <= 100000; i++)
+            {
+                Assert.AreEqual(i, list.RemoveHead());
+            }
+
+            // Добавление в голову и удаление из хвоста
+            //
+            for (int i = 0; i < 100000; i++)
+            {
+                list.AddHead(new Node<int>(i + 1));
+            }
+            for (int i = 1; i <= 100000; i++)
+            {
+                Assert.AreEqual(i, list.RemoveTail());
+            }
         }
     }
 }
