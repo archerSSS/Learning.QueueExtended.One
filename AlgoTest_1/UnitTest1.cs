@@ -150,7 +150,48 @@ namespace AlgoTest_1
             Assert.AreEqual(0, deq.Size());
         }
 
-        
+
+        // Добавление в голову и хвост и удаление из хвоста
+        //
+        [TestMethod]
+        public void TestDequeA_8()
+        {
+            Deque<int> deq = new Deque<int>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                deq.AddFront(i * (-1));
+                deq.AddTail(i);
+            }
+
+            for (int i = 10; i > -11; i--)
+            {
+                if (i == 0) continue;
+                Assert.AreEqual(i, deq.RemoveTail());
+            }
+        }
+
+
+        // Добавление в голову и удаление из головы и хвоста
+        //
+        [TestMethod]
+        public void TestDequeA_9()
+        {
+            Deque<int> deq = new Deque<int>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                deq.AddFront(i);
+            }
+
+            for (int i = 5; i > 0; i--)
+            {
+                Assert.AreEqual(6 - i, deq.RemoveTail());
+                Assert.AreEqual(5 + i, deq.RemoveFront());
+            }
+        }
+
+
         // Добавление-Удаление. 
         // Tail-Tail; Head-Head; Tail-Head; Head-Tail
         //
@@ -324,6 +365,26 @@ namespace AlgoTest_1
 
             Assert.AreEqual(null, node.prev);
             Assert.AreEqual(null, node.next.prev.prev);
+        }
+
+
+        // Добавление. Удаление в цикле с проверкой на количество
+        //
+        [TestMethod]
+        public void TestDequeA_Size_1()
+        {
+            Deque<int> deq = new Deque<int>();
+            for (int i = 0; i < 100000; i++)
+            {
+                deq.AddFront(i + 1);
+            }
+
+            Assert.AreEqual(100000, deq.Size());
+            while (deq.Size() > 0)
+            {
+                deq.RemoveTail();
+            }
+            Assert.AreEqual(0, deq.Size());
         }
 
 
