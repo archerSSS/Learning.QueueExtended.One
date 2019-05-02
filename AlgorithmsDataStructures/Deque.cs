@@ -88,7 +88,11 @@ namespace AlgorithmsDataStructures
         public T RemoveHead()
         {
             T item = head.item;
-            if (head.next != null) head = head.next;
+            if (head.next != null)
+            {
+                head = head.next;
+                head.prev = null;
+            }
             else
             {
                 head = null;
@@ -101,7 +105,11 @@ namespace AlgorithmsDataStructures
         public T RemoveTail()
         {
             T item = tail.item;
-            if (tail.prev != null) tail = tail.prev;
+            if (tail.prev != null)
+            {
+                tail = tail.prev;
+                tail.next = null;
+            }
             else
             {
                 head = null;

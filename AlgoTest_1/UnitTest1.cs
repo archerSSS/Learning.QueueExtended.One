@@ -407,6 +407,26 @@ namespace AlgoTest_1
         }
 
 
+        // Добавление в голову и удаление с головы и хвоста. Проверка next и prev на null (head)
+        //
+        [TestMethod]
+        public void TestDequeA_NextPrev_7()
+        {
+            Deque<int> deq = new Deque<int>();
+            for (int i = 0; i < 10; i++)
+            {
+                deq.AddFront(i + 1);
+            }
+
+            int i1 = deq.RemoveFront();
+            int i2 = deq.RemoveTail();
+
+            Node<int> node1 = deq.list.head;
+            Node<int> node2 = deq.list.tail;
+            
+        }
+
+
         // Добавление. Удаление в цикле с проверкой на количество
         //
         [TestMethod]
