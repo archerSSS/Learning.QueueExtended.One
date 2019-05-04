@@ -644,14 +644,17 @@ namespace AlgoTest_1
             String str2 = "1122";
             String str3 = "grey";
             String str4 = "t1oo1t";
+            String str5 = "sayayas";
             Char[] chars1 = str1.ToCharArray();
             Char[] chars2 = str2.ToCharArray();
             Char[] chars3 = str3.ToCharArray();
             Char[] chars4 = str4.ToCharArray();
+            Char[] chars5 = str5.ToCharArray();
             Deque<char> deq1 = new Deque<char>();
             Deque<char> deq2 = new Deque<char>();
             Deque<char> deq3 = new Deque<char>();
             Deque<char> deq4 = new Deque<char>();
+            Deque<char> deq5 = new Deque<char>();
 
 
             for (int i = 0; i < chars1.Length; i++)
@@ -670,12 +673,17 @@ namespace AlgoTest_1
             {
                 deq4.AddTail(chars4[i]);
             }
+            for (int i = 0; i < chars5.Length; i++)
+            {
+                deq5.AddTail(chars5[i]);
+            }
             PalindromeAnalizer pda = new PalindromeAnalizer();
 
             Assert.AreEqual(true, pda.IsPalindromic(deq1));
             Assert.AreEqual(false, pda.IsPalindromic(deq2));
             Assert.AreEqual(false, pda.IsPalindromic(deq3));
             Assert.AreEqual(true, pda.IsPalindromic(deq4));
+            Assert.AreEqual(true, pda.IsPalindromic(deq5));
         }
     }
 }

@@ -8,20 +8,14 @@ namespace AlgorithmsDataStructures
 {
     public class PalindromeAnalizer
     {
-        //Deque<char> deq1 = new Deque<char>();
-        public bool GetSort(int itr)
-        {
-            if (itr != 0) return true;
-            return false;
-        }
-
-
         public bool IsPalindromic(Deque<char> deq)
         {
-            if ((deq.Size() % 2) != 0) return false;
-            for (int i = 0; i < deq.Size() / 2; i++)
+            Deque<char> deq2 = new Deque<char>();
+            deq.CopyTo(deq2);
+
+            for (int i = 0; i < deq.Size(); i++)
             {
-                if (deq.RemoveFront() != deq.RemoveTail()) return false;
+                if (deq.RemoveFront() != deq2.RemoveTail()) return false;
             }
             return true;
         }

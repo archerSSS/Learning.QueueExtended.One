@@ -43,6 +43,20 @@ namespace AlgorithmsDataStructures
             return list.count;
             return 0;
         }
+
+        public Deque<T> CopyTo(Deque<T> new_deq)
+        {
+            int size = Size();
+            T item;
+            
+            for (int i = 0; i < size; i++)
+            {
+                item = RemoveFront();
+                new_deq.AddTail(item);
+                AddTail(item);
+            }
+            return new_deq;
+        }
     }
 
 
