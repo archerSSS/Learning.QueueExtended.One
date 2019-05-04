@@ -645,39 +645,19 @@ namespace AlgoTest_1
             String str3 = "grey";
             String str4 = "t1oo1t";
             String str5 = "sayayas";
-            Char[] chars1 = str1.ToCharArray();
-            Char[] chars2 = str2.ToCharArray();
-            Char[] chars3 = str3.ToCharArray();
-            Char[] chars4 = str4.ToCharArray();
-            Char[] chars5 = str5.ToCharArray();
+            
             Deque<char> deq1 = new Deque<char>();
             Deque<char> deq2 = new Deque<char>();
             Deque<char> deq3 = new Deque<char>();
             Deque<char> deq4 = new Deque<char>();
             Deque<char> deq5 = new Deque<char>();
 
-
-            for (int i = 0; i < chars1.Length; i++)
-            {
-                deq1.AddTail(chars1[i]);
-            }
-            for (int i = 0; i < chars2.Length; i++)
-            {
-                deq2.AddTail(chars2[i]);
-            }
-            for (int i = 0; i < chars3.Length; i++)
-            {
-                deq3.AddTail(chars3[i]);
-            }
-            for (int i = 0; i < chars4.Length; i++)
-            {
-                deq4.AddTail(chars4[i]);
-            }
-            for (int i = 0; i < chars5.Length; i++)
-            {
-                deq5.AddTail(chars5[i]);
-            }
             PalindromeAnalizer pda = new PalindromeAnalizer();
+            deq1 = pda.StringToDeque(str1);
+            deq2 = pda.StringToDeque(str2);
+            deq3 = pda.StringToDeque(str3);
+            deq4 = pda.StringToDeque(str4);
+            deq5 = pda.StringToDeque(str5);
 
             Assert.AreEqual(true, pda.IsPalindromic(deq1));
             Assert.AreEqual(false, pda.IsPalindromic(deq2));

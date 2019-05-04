@@ -19,5 +19,16 @@ namespace AlgorithmsDataStructures
             }
             return true;
         }
+
+        public Deque<char> StringToDeque(String str)
+        {
+            Char[] chars = str.ToCharArray();
+            Deque<char> deq = new Deque<char>();
+            for (int i = 0; i < chars.Length; i++)
+            {
+                deq.AddTail(chars[i]);
+            }
+            return deq;
+        } 
     }
 }
